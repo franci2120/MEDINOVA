@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073b4c">
+  <meta name="description" content="MEDINOVA: información, educación y orientación para el cuidado de la salud.">
+  <title>MEDINOVA | Salud e innovación</title>
+  <style>
+    :root {
+      --azul: #073b4c;
+      --verde: #12b886;
+      --fondo: #f4f9fb;
+      --texto: #243746;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto);
+      background: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e7eef1;
+    }
+
+    .logo {
+      color: var(--azul);
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--verde); }
+
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+
+    nav a {
+      text-decoration: none;
+      color: var(--azul);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #073b4c, #087f8c);
+      color: white;
+      padding: 90px 7%;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    h1 { font-size: clamp(38px, 5vw, 60px); line-height: 1.1; margin: 22px 0; }
+
+    .hero p { font-size: 18px; color: #e0f2f4; max-width: 570px; }
+
+    .boton {
+      display: inline-block;
+      background: var(--verde);
+      color: #052e2a;
+      padding: 13px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    .simbolo {
+      text-align: center;
+      font-size: clamp(100px, 16vw, 190px);
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,.15));
+    }
+
+    section { padding: 65px 7%; }
+
+    .centrado { text-align: center; }
+
+    h2 { color: var(--azul); font-size: 32px; margin-top: 0; }
+
+    .subtitulo { max-width: 700px; margin: 0 auto 35px; color: #607481; }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .tarjeta {
+      padding: 28px;
+      background: var(--fondo);
+      border: 1px solid #e2edf0;
+      border-radius: 16px;
+      text-align: left;
+    }
+
+    .tarjeta .icono { font-size: 35px; }
+
+    .tarjeta h3 { color: var(--azul); }
+
+    .sobre {
+      background: var(--fondo);
+      text-align: center;
+    }
+
+    .sobre p { max-width: 760px; margin: auto; }
+
+    .redes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 25px;
+    }
+
+    .redes a {
+      color: var(--azul);
+      border: 1px solid #cbdde2;
+      padding: 10px 16px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #052e3a;
+      color: #d7e8ec;
+      padding: 28px 7%;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      header { padding: 16px 5%; }
+      nav { gap: 12px; }
+      .hero { grid-template-columns: 1fr; padding: 60px 6%; }
+      .simbolo { font-size: 100px; }
+      section { padding: 48px 6%; }
+      .tarjetas { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#">MEDI<span>NOVA</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Contenido</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#redes">Redes sociales</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <span class="etiqueta">SALUD · CIENCIA · INNOVACIÓN</span>
+        <h1>El conocimiento que cuida tu salud.</h1>
+        <p>Bienvenido a MEDINOVA, un espacio dedicado a compartir información de salud, educación médica y consejos para el bienestar.</p>
+        <a class="boton" href="#servicios">Explorar contenido →</a>
+      </div>
+      <div class="simbolo" aria-hidden="true">⚕️</div>
+    </section>
+
+    <section id="servicios" class="centrado">
+      <h2>Descubre MEDINOVA</h2>
+      <p class="subtitulo">Información clara para aprender, prevenir y cuidar de ti y de tu familia.</p>
+
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <div class="icono">🩺</div>
+          <h3>Educación médica</h3>
+          <p>Conceptos médicos explicados de manera sencilla para facilitar su comprensión.</p>
+        </article>
+        <article class="tarjeta">
+          <div class="icono">💚</div>
+          <h3>Prevención y bienestar</h3>
+          <p>Recomendaciones generales para promover hábitos saludables y prevenir enfermedades.</p>
+        </article>
+        <article class="tarjeta">
+          <div class="icono">🔬</div>
+          <h3>Ciencia e innovación</h3>
+          <p>Novedades y conocimientos científicos presentados con un lenguaje accesible.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="nosotros" class="sobre">
+      <h2>¿Qué es MEDINOVA?</h2>
+      <p>MEDINOVA nace con el propósito de acercar el conocimiento sobre la salud a más personas mediante contenidos educativos, responsables y fáciles de entender.</p>
+    </section>
+
+    <section id="redes" class="centrado">
+      <h2>Conecta con MEDINOVA</h2>
+      <p class="subtitulo">Próximamente podrás encontrarnos en nuestras redes sociales.</p>
+      <div class="redes">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 MEDINOVA · Educación y orientación en salud.</p>
+    <p>El contenido de esta página es informativo y no sustituye una valoración médica profesional.</p>
+  </footer>
+</body>
+</html>
