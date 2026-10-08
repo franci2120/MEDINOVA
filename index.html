@@ -4,233 +4,636 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#073b4c">
-  <meta name="description" content="MEDINOVA: información, educación y orientación para el cuidado de la salud.">
-  <title>MEDINOVA | Salud e innovación</title>
+  <meta name="theme-color" content="#082f49">
+  <meta name="description" content="MEDINOVA: educación médica, prevención, ciencia y bienestar. Información de salud clara y responsable.">
+  <title>MEDINOVA | Salud, ciencia e innovación</title>
+
   <style>
     :root {
-      --azul: #073b4c;
-      --verde: #12b886;
-      --fondo: #f4f9fb;
-      --texto: #243746;
+      --azul: #082f49;
+      --azul-claro: #124e66;
+      --verde: #24c7a1;
+      --fondo: #f3f8fa;
+      --texto: #263b4a;
+      --gris: #637786;
+      --blanco: #ffffff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--texto);
-      background: white;
-      line-height: 1.6;
+      background: var(--blanco);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .contenedor {
+      width: min(1120px, 90%);
+      margin: auto;
     }
 
     header {
-      background: white;
-      padding: 18px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid #e4edf1;
+    }
+
+    .barra {
+      min-height: 78px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #e7eef1;
+      align-items: center;
+      gap: 24px;
     }
 
     .logo {
+      text-decoration: none;
       color: var(--azul);
       font-size: 27px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
-      text-decoration: none;
+      white-space: nowrap;
     }
 
-    .logo span { color: var(--verde); }
+    .logo span {
+      color: #0db995;
+    }
 
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
     nav a {
       text-decoration: none;
-      color: var(--azul);
-      font-weight: 600;
       font-size: 14px;
+      font-weight: 700;
+      color: var(--azul);
+    }
+
+    nav a:hover,
+    .enlace:hover {
+      color: #079a7b;
     }
 
     .hero {
-      background: linear-gradient(135deg, #073b4c, #087f8c);
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(36,199,161,.2), transparent 35%),
+        linear-gradient(130deg, #082f49, #10566b);
       color: white;
-      padding: 90px 7%;
+      padding: 90px 0;
+      overflow: hidden;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 35px;
+      grid-template-columns: 1.3fr .7fr;
       align-items: center;
+      gap: 45px;
     }
 
     .etiqueta {
       display: inline-block;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.25);
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.09);
       padding: 7px 14px;
       border-radius: 30px;
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
     }
 
-    h1 { font-size: clamp(38px, 5vw, 60px); line-height: 1.1; margin: 22px 0; }
+    h1 {
+      font-size: clamp(40px, 5.5vw, 66px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin: 25px 0;
+    }
 
-    .hero p { font-size: 18px; color: #e0f2f4; max-width: 570px; }
+    .hero p {
+      max-width: 610px;
+      color: #e0edf2;
+      font-size: 18px;
+    }
+
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
 
     .boton {
       display: inline-block;
-      background: var(--verde);
-      color: #052e2a;
-      padding: 13px 22px;
+      padding: 13px 21px;
       border-radius: 9px;
       text-decoration: none;
-      font-weight: 700;
-      margin-top: 15px;
+      font-weight: 800;
+      transition: transform .2s;
     }
 
-    .simbolo {
+    .boton:hover {
+      transform: translateY(-2px);
+    }
+
+    .boton-verde {
+      background: var(--verde);
+      color: #073b35;
+    }
+
+    .boton-claro {
+      border: 1px solid rgba(255,255,255,.55);
+      color: white;
+    }
+
+    .ilustracion {
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .circulo {
+      width: min(270px, 65vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #d8fff4, #80e4d0);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 25px 70px rgba(0,0,0,.18);
+      color: var(--azul);
+      font-size: 125px;
+    }
+
+    .insignia {
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+      background: white;
+      color: var(--azul);
+      border-radius: 12px;
+      padding: 13px 18px;
+      font-weight: 800;
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .encabezado {
       text-align: center;
-      font-size: clamp(100px, 16vw, 190px);
-      filter: drop-shadow(0 10px 25px rgba(0,0,0,.15));
+      max-width: 720px;
+      margin: 0 auto 42px;
     }
 
-    section { padding: 65px 7%; }
+    .mini-titulo {
+      color: #079a7b;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
 
-    .centrado { text-align: center; }
+    h2 {
+      color: var(--azul);
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.2;
+      margin: 12px 0 16px;
+    }
 
-    h2 { color: var(--azul); font-size: 32px; margin-top: 0; }
+    .encabezado p {
+      color: var(--gris);
+    }
 
-    .subtitulo { max-width: 700px; margin: 0 auto 35px; color: #607481; }
-
-    .tarjetas {
+    .rejilla {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 32px;
+      gap: 23px;
     }
 
     .tarjeta {
+      border: 1px solid #e0ebef;
+      border-radius: 17px;
       padding: 28px;
-      background: var(--fondo);
-      border: 1px solid #e2edf0;
-      border-radius: 16px;
-      text-align: left;
+      background: white;
+      box-shadow: 0 8px 25px rgba(8,47,73,.04);
+      transition: transform .2s, box-shadow .2s;
     }
 
-    .tarjeta .icono { font-size: 35px; }
+    .tarjeta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(8,47,73,.09);
+    }
 
-    .tarjeta h3 { color: var(--azul); }
+    .icono {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #e2faf3;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .tarjeta h3 {
+      color: var(--azul);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta p {
+      color: var(--gris);
+      font-size: 15px;
+    }
+
+    .enlace {
+      display: inline-block;
+      color: #087f70;
+      font-weight: 800;
+      text-decoration: none;
+      margin-top: 18px;
+      font-size: 14px;
+    }
 
     .sobre {
       background: var(--fondo);
-      text-align: center;
     }
 
-    .sobre p { max-width: 760px; margin: auto; }
-
-    .redes {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 25px;
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 55px;
+      align-items: center;
     }
 
-    .redes a {
+    .sobre-visual {
+      min-height: 270px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #d5f8ef, #e8f3fa);
+      display: grid;
+      place-items: center;
+      font-size: 105px;
+    }
+
+    .sobre-texto p {
+      color: var(--gris);
+      margin-bottom: 15px;
+    }
+
+    .valores {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .valores li {
+      margin: 9px 0;
+      font-weight: 700;
       color: var(--azul);
-      border: 1px solid #cbdde2;
-      padding: 10px 16px;
-      border-radius: 9px;
+    }
+
+    .valores li::before {
+      content: "✓";
+      color: #079a7b;
+      margin-right: 10px;
+      font-weight: 900;
+    }
+
+    .aviso {
+      background: #fff9e9;
+      border: 1px solid #f0e0ad;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 30px;
+      color: #685626;
+      font-size: 14px;
+    }
+
+    .social {
+      background: white;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .social-card {
+      text-align: center;
+      border: 1px solid #e0ebef;
+      padding: 23px 12px;
+      border-radius: 14px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 800;
+      color: var(--azul);
+      transition: background .2s, transform .2s;
+    }
+
+    .social-card:hover {
+      background: var(--fondo);
+      transform: translateY(-3px);
+    }
+
+    .social-card span {
+      display: block;
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .social-nota {
+      margin-top: 22px;
+      color: var(--gris);
+      font-size: 13px;
+      text-align: center;
     }
 
     footer {
-      background: #052e3a;
-      color: #d7e8ec;
-      padding: 28px 7%;
+      background: #06283b;
+      color: #d5e5ec;
+      padding: 35px 0;
       text-align: center;
+    }
+
+    footer .logo {
+      color: white;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .pie-enlaces {
+      margin-top: 14px;
+    }
+
+    .pie-enlaces a {
+      color: #a8e9dc;
+      text-decoration: none;
+      margin: 0 8px;
       font-size: 13px;
     }
 
-    @media (max-width: 720px) {
-      header { padding: 16px 5%; }
-      nav { gap: 12px; }
-      .hero { grid-template-columns: 1fr; padding: 60px 6%; }
-      .simbolo { font-size: 100px; }
-      section { padding: 48px 6%; }
-      .tarjetas { grid-template-columns: 1fr; }
+    @media (max-width: 800px) {
+      .barra {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px 20px;
+      }
+
+      .hero {
+        padding: 62px 0;
+      }
+
+      .hero-grid,
+      .sobre-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ilustracion {
+        min-height: 230px;
+      }
+
+      .circulo {
+        width: 210px;
+        font-size: 100px;
+      }
+
+      .insignia {
+        right: 8%;
+      }
+
+      .rejilla {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .sobre-visual {
+        min-height: 200px;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <a class="logo" href="#">MEDI<span>NOVA</span></a>
-    <nav aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Contenido</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#redes">Redes sociales</a>
-    </nav>
+    <div class="contenedor barra">
+      <a class="logo" href="#inicio" aria-label="MEDINOVA, inicio">
+        MEDI<span>NOVA</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#contenido">Contenido</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#redes">Redes sociales</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div>
-        <span class="etiqueta">SALUD · CIENCIA · INNOVACIÓN</span>
-        <h1>El conocimiento que cuida tu salud.</h1>
-        <p>Bienvenido a MEDINOVA, un espacio dedicado a compartir información de salud, educación médica y consejos para el bienestar.</p>
-        <a class="boton" href="#servicios">Explorar contenido →</a>
-      </div>
-      <div class="simbolo" aria-hidden="true">⚕️</div>
-    </section>
+      <div class="contenedor hero-grid">
+        <div>
+          <span class="etiqueta">SALUD · CIENCIA · INNOVACIÓN</span>
+          <h1>La información que inspira el cuidado de tu salud.</h1>
+          <p>
+            Bienvenido a MEDINOVA. Un espacio de educación médica,
+            prevención y bienestar donde el conocimiento se comparte
+            de forma clara, responsable y accesible.
+          </p>
 
-    <section id="servicios" class="centrado">
-      <h2>Descubre MEDINOVA</h2>
-      <p class="subtitulo">Información clara para aprender, prevenir y cuidar de ti y de tu familia.</p>
+          <div class="botones">
+            <a class="boton boton-verde" href="#contenido">
+              Explorar contenido →
+            </a>
+            <a class="boton boton-claro" href="#nosotros">
+              Conocer MEDINOVA
+            </a>
+          </div>
+        </div>
 
-      <div class="tarjetas">
-        <article class="tarjeta">
-          <div class="icono">🩺</div>
-          <h3>Educación médica</h3>
-          <p>Conceptos médicos explicados de manera sencilla para facilitar su comprensión.</p>
-        </article>
-        <article class="tarjeta">
-          <div class="icono">💚</div>
-          <h3>Prevención y bienestar</h3>
-          <p>Recomendaciones generales para promover hábitos saludables y prevenir enfermedades.</p>
-        </article>
-        <article class="tarjeta">
-          <div class="icono">🔬</div>
-          <h3>Ciencia e innovación</h3>
-          <p>Novedades y conocimientos científicos presentados con un lenguaje accesible.</p>
-        </article>
+        <div class="ilustracion" aria-hidden="true">
+          <div class="circulo">⚕</div>
+          <div class="insignia">💚 Salud y conocimiento</div>
+        </div>
       </div>
     </section>
 
-    <section id="nosotros" class="sobre">
-      <h2>¿Qué es MEDINOVA?</h2>
-      <p>MEDINOVA nace con el propósito de acercar el conocimiento sobre la salud a más personas mediante contenidos educativos, responsables y fáciles de entender.</p>
+    <section id="contenido">
+      <div class="contenedor">
+        <div class="encabezado">
+          <span class="mini-titulo">Explora y aprende</span>
+          <h2>Conocimiento para cuidar de ti</h2>
+          <p>
+            Contenidos educativos para comprender mejor la salud,
+            conocer medidas preventivas y descubrir avances científicos.
+          </p>
+        </div>
+
+        <div class="rejilla">
+          <article class="tarjeta">
+            <div class="icono" aria-hidden="true">🩺</div>
+            <h3>Educación médica</h3>
+            <p>
+              Aprende conceptos médicos y conoce información general
+              sobre el funcionamiento del cuerpo humano.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono" aria-hidden="true">💚</div>
+            <h3>Prevención y bienestar</h3>
+            <p>
+              Descubre información sobre hábitos saludables, prevención
+              de enfermedades y cuidado integral.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono" aria-hidden="true">🔬</div>
+            <h3>Ciencia e innovación</h3>
+            <p>
+              Acércate a los avances científicos y a las novedades
+              médicas explicadas en un lenguaje accesible.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="redes" class="centrado">
-      <h2>Conecta con MEDINOVA</h2>
-      <p class="subtitulo">Próximamente podrás encontrarnos en nuestras redes sociales.</p>
-      <div class="redes">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+    <section class="sobre" id="nosotros">
+      <div class="contenedor sobre-grid">
+        <div class="sobre-visual" aria-hidden="true">🧬</div>
+
+        <div class="sobre-texto">
+          <span class="mini-titulo">Nuestra identidad</span>
+          <h2>¿Qué es MEDINOVA?</h2>
+          <p>
+            MEDINOVA es un proyecto dedicado a compartir información
+            educativa sobre salud, medicina, prevención y ciencia.
+          </p>
+          <p>
+            Nuestro objetivo es acercar el conocimiento a las personas
+            mediante contenidos comprensibles y responsables.
+          </p>
+
+          <ul class="valores">
+            <li>Información clara y accesible</li>
+            <li>Educación para la prevención</li>
+            <li>Respeto y responsabilidad</li>
+            <li>Interés por la ciencia y la innovación</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="social" id="redes">
+      <div class="contenedor">
+        <div class="encabezado">
+          <span class="mini-titulo">Nuestra comunidad</span>
+          <h2>Conecta con MEDINOVA</h2>
+          <p>
+            Encuentra contenido educativo y novedades de nuestro proyecto
+            en las plataformas digitales.
+          </p>
+        </div>
+
+        <div class="social-grid">
+          <a class="social-card"
+             href="https://www.facebook.com/"
+             target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">📘</span>
+            Facebook
+          </a>
+
+          <a class="social-card"
+             href="https://www.instagram.com/"
+             target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">📸</span>
+            Instagram
+          </a>
+
+          <a class="social-card"
+             href="https://www.tiktok.com/"
+             target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">🎵</span>
+            TikTok
+          </a>
+
+          <a class="social-card"
+             href="https://www.youtube.com/"
+             target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">▶️</span>
+            YouTube
+          </a>
+        </div>
+
+        <p class="social-nota">
+          Estos enlaces llevan a las plataformas generales.
+          Más adelante los cambiaremos por los perfiles oficiales de MEDINOVA.
+        </p>
+
+        <div class="aviso">
+          <strong>Información importante:</strong>
+          el contenido de MEDINOVA tiene fines educativos y no sustituye
+          la valoración, el diagnóstico ni el tratamiento indicados
+          por un profesional de la salud.
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 MEDINOVA · Educación y orientación en salud.</p>
-    <p>El contenido de esta página es informativo y no sustituye una valoración médica profesional.</p>
+    <div class="contenedor">
+      <a class="logo" href="#inicio">MEDI<span>NOVA</span></a>
+      <p>Salud · Ciencia · Innovación</p>
+      <p>© 2026 MEDINOVA. Todos los derechos reservados.</p>
+      <div class="pie-enlaces">
+        <a href="#inicio">Inicio</a>
+        <a href="#contenido">Contenido</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#redes">Redes sociales</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
