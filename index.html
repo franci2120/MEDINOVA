@@ -2,510 +2,552 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#087eae">
-  <meta name="description" content="MEDINOVA. Atención médica especializada en Ginecología y Obstetricia, Traumatología y Ortopedia, y Cirugía General. Solicita información por WhatsApp.">
-  <title>MEDINOVA | Atención Médica Especializada</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#073b4c">
+<meta name="description" content="MEDINOVA: atención médica especializada en Ginecología y Obstetricia, Traumatología y Ortopedia, y Cirugía General.">
+<title>MEDINOVA | Salud con confianza</title>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --azul: #087eae;
-      --azul-oscuro: #075477;
-      --turquesa: #17b9b0;
-      --fondo: #f2f9fc;
-      --texto: #193746;
-      --blanco: #ffffff;
-    }
+<style>
+:root {
+  --navy: #073b4c;
+  --teal: #087f8c;
+  --mint: #c9f4e7;
+  --lime: #d8f36a;
+  --ink: #18343d;
+  --muted: #647b82;
+  --paper: #f6faf8;
+  --white: #fff;
+  --line: #e2eeea;
+  --shadow: 0 24px 70px #073b4c12;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.wrap { width: min(1160px, 92%); margin: auto; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f6faf8ef;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  background: var(--navy);
+  display: grid;
+  place-items: center;
+  color: var(--lime);
+  font-size: 28px;
+  font-weight: 800;
+}
+.brand strong {
+  font: 800 23px Manrope, sans-serif;
+  letter-spacing: 1.8px;
+  color: var(--navy);
+  display: block;
+  line-height: 1.15;
+}
+.brand small {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4b646b;
+}
+.navlinks a:hover { color: var(--teal); }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--texto);
-      background: var(--fondo);
-      line-height: 1.6;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 21px;
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .2s;
+  box-shadow: 0 9px 22px #073b4c20;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--teal);
+}
+.btn.outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid #b9d3cf;
+  box-shadow: none;
+}
 
-    a {
-      text-decoration: none;
-    }
+.hero { padding: 64px 0 72px; overflow: hidden; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.03fr;
+  align-items: center;
+  gap: 58px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #e2f7ef;
+  border: 1px solid #c9ebe0;
+  border-radius: 999px;
+  padding: 8px 13px;
+  color: #23746c;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #39b58d;
+  border-radius: 50%;
+}
+h1, h2, h3 { font-family: Manrope, sans-serif; letter-spacing: -1.4px; }
+h1 {
+  font-size: clamp(43px, 5.2vw, 68px);
+  line-height: 1.04;
+  margin: 23px 0 20px;
+  color: var(--navy);
+  font-weight: 800;
+}
+h1 em { font-style: normal; color: var(--teal); }
+.hero-copy {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 510px;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.avatars { display: flex; padding-left: 5px; }
+.avatars span {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  margin-left: -6px;
+  background: #d9f1e9;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+.trust b { color: var(--navy); }
 
-    .contenedor {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
+.hero-art { position: relative; min-height: 490px; }
+.hero-photo {
+  position: absolute;
+  inset: 0 28px 25px 30px;
+  border-radius: 46% 46% 25px 25px;
+  overflow: hidden;
+  background: #d7eee7;
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #073b4c00 52%, #073b4c65);
+}
+.floating {
+  position: absolute;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 15px 17px;
+  box-shadow: var(--shadow);
+  z-index: 2;
+}
+.float-top { top: 48px; left: 0; display: flex; align-items: center; gap: 10px; }
+.float-icon {
+  width: 39px;
+  height: 39px;
+  border-radius: 12px;
+  background: #e0f8ee;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+.floating small { display: block; color: var(--muted); font-size: 11px; }
+.floating b { font-size: 13px; color: var(--navy); }
+.float-bottom { right: 0; bottom: 0; max-width: 230px; }
+.float-bottom .big { font: 800 27px Manrope; color: var(--teal); }
+.hero-caption { position: absolute; z-index: 2; bottom: 55px; left: 58px; color: white; }
+.hero-caption small {
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+}
+.hero-caption h3 { font-size: 23px; margin: 4px 0; }
 
-    header {
-      background: var(--blanco);
-      padding: 17px 0;
-      box-shadow: 0 3px 15px #12334412;
-    }
+.stats { background: var(--navy); color: white; padding: 25px 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  border-right: 1px solid #ffffff22;
+}
+.stat:last-child { border: 0; }
+.stat .symbol { font-size: 25px; color: var(--lime); }
+.stat strong { display: block; font: 700 14px Manrope; }
+.stat span { font-size: 11px; color: #b7d2d4; }
 
-    .barra {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+section.content { padding: 86px 0; }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 38px; }
+.kicker {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.section-head h2 {
+  font-size: clamp(31px, 4vw, 45px);
+  line-height: 1.13;
+  color: var(--navy);
+  margin: 10px 0 13px;
+}
+.section-head p { color: var(--muted); margin: 0; }
 
-    .marca {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+.specialties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.specialty {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: .25s;
+}
+.specialty:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.specialty-img { height: 190px; position: relative; overflow: hidden; }
+.specialty-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.specialty:hover .specialty-img img { transform: scale(1.04); }
+.specialty-body { padding: 24px; }
+.num { font-size: 10px; font-weight: 800; color: var(--teal); letter-spacing: 1.6px; }
+.specialty h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 8px 0 10px;
+  letter-spacing: -.5px;
+}
+.specialty p { font-size: 13px; color: var(--muted); margin: 0 0 18px; }
+.text-link { font-size: 12px; font-weight: 800; color: var(--teal); }
 
-    .simbolo {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: white;
-      background: linear-gradient(135deg, var(--azul), var(--turquesa));
-      font-size: 34px;
-      font-weight: bold;
-      line-height: 1;
-    }
+.about { background: #e9f5f0; }
+.about-grid {
+  display: grid;
+  grid-template-columns: .95fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+.about-image { height: 410px; border-radius: 28px; overflow: hidden; }
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-copy h2 {
+  font-size: clamp(32px, 4vw, 45px);
+  line-height: 1.12;
+  color: var(--navy);
+  margin: 12px 0 18px;
+}
+.about-copy p { color: var(--muted); font-size: 15px; }
+.checks { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 13px; }
+.checks li { display: flex; gap: 10px; font-size: 13px; font-weight: 700; color: var(--navy); }
+.checks span { color: var(--teal); font-size: 17px; }
 
-    .nombre {
-      color: var(--azul-oscuro);
-      font-size: 27px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      line-height: 1.2;
-    }
+.social-panel {
+  background: var(--navy);
+  border-radius: 30px;
+  padding: 48px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+.social-panel h2 { font-size: clamp(29px, 3.5vw, 42px); line-height: 1.13; margin: 10px 0; }
+.social-panel p { color: #bed4d5; font-size: 14px; }
+.social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ffffff28;
+  border-radius: 16px;
+  padding: 14px;
+  background: #ffffff0a;
+  transition: .2s;
+}
+.social-link:hover { background: #ffffff18; transform: translateY(-2px); }
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: #073b4c;
+  font-weight: 800;
+  font-size: 17px;
+}
+.social-link strong { display: block; font-size: 12px; }
+.social-link small { font-size: 10px; color: #bdd3d5; }
 
-    .lema {
-      color: #5b7785;
-      font-size: 11px;
-      letter-spacing: 1px;
-      font-weight: bold;
-    }
+.contact { padding: 72px 0; }
+.contact-box {
+  background: #d9f5e9;
+  border-radius: 28px;
+  padding: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.contact-box h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.15; color: var(--navy); margin: 0 0 9px; }
+.contact-box p { color: #55756f; margin: 0; font-size: 14px; }
+.contact-box .btn { flex-shrink: 0; }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+footer { background: #042d3a; color: white; padding: 32px 0; }
+.footer-row { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+.footer-brand { font: 800 20px Manrope; letter-spacing: 2px; }
+.footer-note { font-size: 11px; color: #a9c5c8; }
+.footer-links { display: flex; gap: 18px; font-size: 12px; color: #d4e5e5; }
 
-    nav a {
-      color: var(--texto);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: var(--azul);
-    }
-
-    .portada {
-      padding: 85px 0;
-      background:
-        radial-gradient(circle at 85% 15%, #17b9b025, transparent 28%),
-        linear-gradient(135deg, #e8f7fc, #ffffff);
-      text-align: center;
-    }
-
-    .etiqueta {
-      display: inline-block;
-      padding: 7px 16px;
-      margin-bottom: 18px;
-      border-radius: 30px;
-      background: #d8f5f2;
-      color: #087e86;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    h1 {
-      color: var(--azul-oscuro);
-      font-size: clamp(34px, 5vw, 55px);
-      line-height: 1.13;
-      margin-bottom: 20px;
-    }
-
-    .portada p {
-      max-width: 680px;
-      margin: 0 auto 28px;
-      color: #4c6674;
-      font-size: 18px;
-    }
-
-    .boton {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 10px;
-      background: var(--azul);
-      color: white;
-      font-weight: bold;
-      transition: transform .2s, background .2s;
-    }
-
-    .boton:hover {
-      background: var(--azul-oscuro);
-      transform: translateY(-2px);
-    }
-
-    section {
-      padding: 65px 0;
-    }
-
-    .titulo-seccion {
-      text-align: center;
-      color: var(--azul-oscuro);
-      font-size: clamp(27px, 4vw, 36px);
-      margin-bottom: 12px;
-    }
-
-    .subtitulo {
-      max-width: 650px;
-      margin: 0 auto 35px;
-      text-align: center;
-      color: #607885;
-    }
-
-    .especialidades {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .tarjeta {
-      background: white;
-      padding: 28px 23px;
-      border-radius: 17px;
-      box-shadow: 0 7px 25px #1233440c;
-      border: 1px solid #e2eff4;
-    }
-
-    .icono-medico {
-      width: 55px;
-      height: 55px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      background: #e2f7f6;
-      font-size: 27px;
-      margin-bottom: 18px;
-    }
-
-    .tarjeta h3 {
-      color: var(--azul-oscuro);
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .tarjeta p {
-      color: #607885;
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .enlace-whatsapp {
-      color: var(--azul);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .informacion {
-      background: white;
-      text-align: center;
-    }
-
-    .informacion p {
-      max-width: 760px;
-      margin: 0 auto 20px;
-      color: #526d7a;
-    }
-
-    .redes {
-      background: linear-gradient(135deg, #e8f7fc, #f4fffd);
-    }
-
-    .redes-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 15px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .red-social {
-      display: flex;
-      min-height: 125px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 18px 10px;
-      border: 1px solid #e1edf2;
-      border-radius: 16px;
-      background: white;
-      color: var(--texto);
-      font-weight: bold;
-      box-shadow: 0 5px 18px #1233440a;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .red-social:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px #12334418;
-    }
-
-    .icono-red {
-      width: 49px;
-      height: 49px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .facebook { background: #1877f2; }
-    .instagram { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); }
-    .tiktok { background: #111111; }
-    .youtube { background: #ff0033; }
-    .whatsapp { background: #20bd67; }
-
-    .red-social small {
-      color: #708591;
-      font-size: 12px;
-      font-weight: normal;
-    }
-
-    footer {
-      padding: 30px 0;
-      background: #073e59;
-      color: white;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 14px;
-      margin: 5px 0;
-    }
-
-    footer a {
-      color: #8ef0e6;
-    }
-
-    @media (max-width: 760px) {
-      .barra {
-        justify-content: center;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 12px 18px;
-      }
-
-      .portada {
-        padding: 65px 0;
-      }
-
-      .especialidades {
-        grid-template-columns: 1fr;
-      }
-
-      .redes-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .red-social:last-child {
-        grid-column: 1 / -1;
-      }
-    }
-  </style>
+@media(max-width:850px) {
+  .navlinks { display: none; }
+  .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 35px; }
+  .hero { padding-top: 42px; }
+  .hero-art { min-height: 430px; }
+  .specialties { grid-template-columns: 1fr 1fr; }
+  .social-panel { grid-template-columns: 1fr; padding: 32px; }
+  .about-image { height: 330px; }
+}
+@media(max-width:560px) {
+  .nav { height: 72px; }
+  .brand strong { font-size: 20px; }
+  .nav .btn { padding: 11px 14px; font-size: 11px; }
+  .hero { padding-bottom: 48px; }
+  .hero-art { min-height: 360px; }
+  .hero-photo { inset: 0 15px 18px; }
+  .hero-caption { left: 35px; bottom: 42px; }
+  .float-top { top: 20px; }
+  .float-bottom { max-width: 185px; padding: 12px; }
+  .stats-grid { grid-template-columns: 1fr; gap: 15px; }
+  .stat { justify-content: flex-start; border-right: 0; border-bottom: 1px solid #ffffff22; padding-bottom: 13px; }
+  .stat:last-child { border: 0; padding-bottom: 0; }
+  .content { padding: 60px 0 !important; }
+  .specialties { grid-template-columns: 1fr; }
+  .specialty-img { height: 210px; }
+  .social-links { grid-template-columns: 1fr 1fr; }
+  .social-link { padding: 10px; gap: 8px; }
+  .social-icon { width: 34px; height: 34px; }
+  .contact-box { padding: 27px; align-items: flex-start; flex-direction: column; }
+  .footer-row { align-items: flex-start; flex-direction: column; }
+  .footer-links { flex-wrap: wrap; }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="contenedor barra">
-      <a class="marca" href="#inicio" aria-label="MEDINOVA, inicio">
-        <span class="simbolo">+</span>
-        <span>
-          <span class="nombre">MEDINOVA</span><br>
-          <span class="lema">ATENCIÓN MÉDICA ESPECIALIZADA</span>
-        </span>
-      </a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="MEDINOVA inicio">
+      <span class="logo">+</span>
+      <span>
+        <strong>MEDINOVA</strong>
+        <small>ATENCIÓN MÉDICA ESPECIALIZADA</small>
+      </span>
+    </a>
+    <nav class="navlinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#redes">Redes sociales</a>
+    </nav>
+    <a class="btn" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20MEDINOVA." target="_blank" rel="noopener">Contactar ↗</a>
+  </div>
+</header>
 
-      <nav aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#especialidades">Especialidades</a>
-        <a href="#nosotros">Información</a>
-        <a href="#redes">Síguenos</a>
-      </nav>
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Cuidamos de ti y de los tuyos</span>
+      <h1>Tu salud merece<br>una atención <em>extraordinaria.</em></h1>
+      <p class="hero-copy">Atención médica especializada con un trato humano, cercano y profesional. Conoce nuestras áreas de atención y solicita información para tu cita.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#especialidades">Conoce nuestras especialidades →</a>
+        <a class="btn outline" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20agendar%20una%20cita%20con%20MEDINOVA." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="trust">
+        <div class="avatars"><span>✚</span><span>♡</span><span>✦</span></div>
+        <div><b>Atención cercana y especializada</b><br><span>Información clara para tu bienestar</span></div>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="portada" id="inicio">
-      <div class="contenedor">
-        <span class="etiqueta">MEDINOVA · SALUD Y BIENESTAR</span>
-        <h1>Tu salud merece<br>atención especializada</h1>
-        <p>
-          Conoce nuestras especialidades médicas y solicita información
-          sobre citas y atención a través de nuestros canales oficiales.
-        </p>
-        <a class="boton"
-           href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20las%20especialidades%20y%20las%20citas%20de%20MEDINOVA."
-           target="_blank" rel="noopener noreferrer">
-          Solicitar información por WhatsApp
-        </a>
+    <div class="hero-art">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1100&q=85" alt="Profesional de la salud en un entorno clínico">
       </div>
-    </section>
-
-    <section id="especialidades">
-      <div class="contenedor">
-        <h2 class="titulo-seccion">Nuestras especialidades</h2>
-        <p class="subtitulo">
-          Consulta información sobre las áreas de atención médica que
-          ofrecemos y contáctanos para conocer la disponibilidad de citas.
-        </p>
-
-        <div class="especialidades">
-          <article class="tarjeta">
-            <div class="icono-medico" aria-hidden="true">⚕</div>
-            <h3>Ginecología y Obstetricia</h3>
-            <p>
-              Información y orientación para la salud femenina,
-              atención ginecológica y seguimiento obstétrico.
-            </p>
-            <a class="enlace-whatsapp"
-               href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Ginecolog%C3%ADa%20y%20Obstetricia%20en%20MEDINOVA."
-               target="_blank" rel="noopener noreferrer">
-              Consultar por WhatsApp →
-            </a>
-          </article>
-
-          <article class="tarjeta">
-            <div class="icono-medico" aria-hidden="true">🦴</div>
-            <h3>Traumatología y Ortopedia</h3>
-            <p>
-              Información sobre atención de lesiones y problemas
-              relacionados con huesos, articulaciones y movimiento.
-            </p>
-            <a class="enlace-whatsapp"
-               href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Traumatolog%C3%ADa%20y%20Ortopedia%20en%20MEDINOVA."
-               target="_blank" rel="noopener noreferrer">
-              Consultar por WhatsApp →
-            </a>
-          </article>
-
-          <article class="tarjeta">
-            <div class="icono-medico" aria-hidden="true">✚</div>
-            <h3>Cirugía General</h3>
-            <p>
-              Solicita información sobre valoración quirúrgica,
-              citas y opciones de atención.
-            </p>
-            <a class="enlace-whatsapp"
-               href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Cirug%C3%ADa%20General%20en%20MEDINOVA."
-               target="_blank" rel="noopener noreferrer">
-              Consultar por WhatsApp →
-            </a>
-          </article>
-        </div>
+      <div class="floating float-top">
+        <span class="float-icon">✚</span>
+        <span><b>Tu bienestar, primero</b><small>Atención con calidad humana</small></span>
       </div>
-    </section>
-
-    <section class="informacion" id="nosotros">
-      <div class="contenedor">
-        <h2 class="titulo-seccion">Información y citas</h2>
-        <p>
-          En MEDINOVA te ayudamos a solicitar información sobre las
-          especialidades y la disponibilidad de atención.
-        </p>
-        <p>
-          Las consultas y los procedimientos se coordinan en hospitales
-          o clínicas colaboradoras, según corresponda. Consulta por
-          WhatsApp para conocer los detalles de tu cita.
-        </p>
-        <a class="boton"
-           href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20cita%20con%20MEDINOVA."
-           target="_blank" rel="noopener noreferrer">
-          Contactar a MEDINOVA
-        </a>
-      </div>
-    </section>
-
-    <section class="redes" id="redes">
-      <div class="contenedor">
-        <h2 class="titulo-seccion">Síguenos en MEDINOVA</h2>
-        <p class="subtitulo">
-          Encuéntranos en nuestras redes sociales y mantente al tanto
-          de nuestras novedades e información.
-        </p>
-
-        <div class="redes-grid">
-          <a class="red-social"
-             href="https://www.facebook.com/profile.php?id=61595373774859"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Visitar Facebook de MEDINOVA">
-            <span class="icono-red facebook" aria-hidden="true">f</span>
-            <span>Facebook</span>
-            <small>Visitar página</small>
-          </a>
-
-          <a class="red-social"
-             href="https://www.instagram.com/medi202605/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Visitar Instagram de MEDINOVA">
-            <span class="icono-red instagram" aria-hidden="true">◎</span>
-            <span>Instagram</span>
-            <small>Ver perfil</small>
-          </a>
-
-          <a class="red-social"
-             href="https://www.tiktok.com/@medinova212"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Visitar TikTok de MEDINOVA">
-            <span class="icono-red tiktok" aria-hidden="true">♪</span>
-            <span>TikTok</span>
-            <small>Ver videos</small>
-          </a>
-
-          <a class="red-social"
-             href="https://www.youtube.com/@MEDINOVA212"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Visitar YouTube de MEDINOVA">
-            <span class="icono-red youtube" aria-hidden="true">▶</span>
-            <span>YouTube</span>
-            <small>Ver canal</small>
-          </a>
-
-          <a class="red-social"
-             href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20MEDINOVA."
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Contactar a MEDINOVA por WhatsApp">
-            <span class="icono-red whatsapp" aria-hidden="true">✆</span>
-            <span>WhatsApp</span>
-            <small>Enviar mensaje</small>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="contenedor">
-      <p><strong>MEDINOVA</strong> · Atención Médica Especializada</p>
-      <p>Información y citas: <a href="https://wa.me/524523393594" target="_blank" rel="noopener noreferrer">WhatsApp 452 339 3594</a></p>
-      <p>© 2026 MEDINOVA. Todos los derechos reservados.</p>
+      <div class="hero-caption"><small>MEDINOVA · SALUD Y CONFIANZA</small><h3>Estamos para orientarte.</h3></div>
+      <div class="floating float-bottom"><div class="big">3 áreas</div><b>de atención especializada</b><small>Consulta información sobre nuestras especialidades.</small></div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><span class="symbol">✚</span><div><strong>Atención especializada</strong><span>Información sobre nuestras áreas médicas</span></div></div>
+    <div class="stat"><span class="symbol">♡</span><div><strong>Trato humano</strong><span>Orientación clara y cercana</span></div></div>
+    <div class="stat"><span class="symbol">↗</span><div><strong>Contacto sencillo</strong><span>Solicita información por WhatsApp</span></div></div>
+  </div>
+</div>
+
+<section class="content" id="especialidades">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Conoce MEDINOVA</span>
+      <h2>Especialidades pensadas<br>para cuidar de ti</h2>
+      <p>Conoce nuestras áreas de atención y contáctanos para consultar detalles y disponibilidad de citas.</p>
+    </div>
+    <div class="specialties">
+      <article class="specialty">
+        <div class="specialty-img"><img loading="lazy" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&q=80" alt="Atención médica y cuidado de la salud femenina"></div>
+        <div class="specialty-body">
+          <span class="num">01 / SALUD FEMENINA</span>
+          <h3>Ginecología y Obstetricia</h3>
+          <p>Información y orientación para la salud femenina, atención ginecológica y seguimiento obstétrico.</p>
+          <a class="text-link" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Ginecolog%C3%ADa%20y%20Obstetricia%20en%20MEDINOVA." target="_blank" rel="noopener">Solicitar información ↗</a>
+        </div>
+      </article>
+      <article class="specialty">
+        <div class="specialty-img"><img loading="lazy" src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=800&q=80" alt="Profesional de la salud en consulta"></div>
+        <div class="specialty-body">
+          <span class="num">02 / MOVIMIENTO</span>
+          <h3>Traumatología y Ortopedia</h3>
+          <p>Información sobre lesiones y problemas relacionados con huesos, articulaciones y movimiento.</p>
+          <a class="text-link" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Traumatolog%C3%ADa%20y%20Ortopedia%20en%20MEDINOVA." target="_blank" rel="noopener">Solicitar información ↗</a>
+        </div>
+      </article>
+      <article class="specialty">
+        <div class="specialty-img"><img loading="lazy" src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Equipo médico en un entorno hospitalario"></div>
+        <div class="specialty-body">
+          <span class="num">03 / ATENCIÓN QUIRÚRGICA</span>
+          <h3>Cirugía General</h3>
+          <p>Solicita información sobre valoración quirúrgica, citas y opciones de atención.</p>
+          <a class="text-link" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Cirug%C3%ADa%20General%20en%20MEDINOVA." target="_blank" rel="noopener">Solicitar información ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="content about" id="nosotros">
+  <div class="wrap about-grid">
+    <div class="about-image">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85" alt="Profesionales de la salud colaborando">
+    </div>
+    <div class="about-copy">
+      <span class="kicker">Un acompañamiento cercano</span>
+      <h2>Atención médica con claridad y confianza.</h2>
+      <p>En MEDINOVA te ayudamos a obtener información sobre nuestras especialidades y las opciones de atención disponibles.</p>
+      <ul class="checks">
+        <li><span>✓</span> Orientación para conocer nuestras especialidades</li>
+        <li><span>✓</span> Contacto directo para consultar citas</li>
+        <li><span>✓</span> Información clara sobre los siguientes pasos</li>
+      </ul>
+      <a class="btn" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20una%20cita%20con%20MEDINOVA." target="_blank" rel="noopener">Hablar con MEDINOVA ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="redes">
+  <div class="wrap">
+    <div class="social-panel">
+      <div>
+        <span class="kicker" style="color:var(--lime)">Conecta con nosotros</span>
+        <h2>Sigamos en contacto.</h2>
+        <p>Visita nuestros perfiles oficiales para conocer las novedades y el contenido de MEDINOVA.</p>
+        <p style="font-size:11px">Las redes sociales se abren en una pestaña nueva.</p>
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61595373774859" target="_blank" rel="noopener"><span class="social-icon">f</span><span><strong>Facebook</strong><small>Visitar página ↗</small></span></a>
+        <a class="social-link" href="https://www.instagram.com/medi202605/" target="_blank" rel="noopener"><span class="social-icon">◎</span><span><strong>Instagram</strong><small>Ver perfil ↗</small></span></a>
+        <a class="social-link" href="https://www.tiktok.com/@medinova212" target="_blank" rel="noopener"><span class="social-icon">♪</span><span><strong>TikTok</strong><small>Ver videos ↗</small></span></a>
+        <a class="social-link" href="https://www.youtube.com/@MEDINOVA212" target="_blank" rel="noopener"><span class="social-icon">▶</span><span><strong>YouTube</strong><small>Ver canal ↗</small></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap contact-box">
+    <div>
+      <h2>¿Quieres más información?</h2>
+      <p>Escríbenos y consulta los detalles de atención y disponibilidad de citas.</p>
+    </div>
+    <a class="btn" href="https://wa.me/524523393594?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20MEDINOVA." target="_blank" rel="noopener">Contactar por WhatsApp ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div><div class="footer-brand">MEDINOVA <span style="color:var(--lime)">+</span></div><div class="footer-note">Atención médica especializada</div></div>
+    <div class="footer-note">Información y citas: <a href="https://wa.me/524523393594" target="_blank" rel="noopener" style="color:var(--lime)">452 339 3594</a></div>
+    <div class="footer-links"><a href="#inicio">Inicio ↑</a><a href="#especialidades">Especialidades</a><a href="#redes">Redes sociales</a></div>
+  </div>
+  <div class="wrap footer-note" style="margin-top:22px">© 2026 MEDINOVA. Las imágenes son ilustrativas. La información del sitio no sustituye una valoración médica.</div>
+</footer>
 </body>
 </html>
