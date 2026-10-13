@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,12 +56,19 @@ header{
   gap:18px;
 }
 
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.logo{
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+
+.logo-symbol{
   width:58px;
   height:58px;
-  object-fit:contain;
   flex-shrink:0;
+  display:block;
+  filter:drop-shadow(0 4px 8px #087f8c20);
 }
 
 .brand strong{
@@ -71,7 +78,10 @@ header{
   color:var(--navy);
 }
 
+.brand strong span{color:var(--teal)}
+
 .brand small{
+  display:block;
   font-size:9px;
   letter-spacing:1px;
   color:var(--muted);
@@ -162,6 +172,14 @@ h1 em{color:var(--teal);font-style:normal}
 
 .float-top{top:25px;left:0}
 .float-bottom{bottom:0;right:0;max-width:210px}
+
+.mini-logo{
+  width:24px;
+  height:24px;
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:5px;
+}
 
 .stats{background:var(--navy);color:white;padding:24px 0}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -296,7 +314,7 @@ footer{background:#042d3a;color:white;padding:30px 0}
 @media(max-width:560px){
   .brand strong{font-size:19px}
   .brand small{font-size:8px;letter-spacing:.6px}
-  .logo{width:48px;height:48px}
+  .logo-symbol{width:48px;height:48px}
   .hero{padding:40px 0}
   .hero-art{height:330px}
   .stats-grid{grid-template-columns:1fr}
@@ -316,9 +334,69 @@ footer{background:#042d3a;color:white;padding:30px 0}
 <header>
   <div class="wrap nav">
     <a class="brand" href="#inicio" aria-label="MEDINOVA inicio">
-      <img class="logo" src="logo-medinova.png" alt="Logotipo de MEDINOVA">
+
+      <!-- LOGOTIPO NUEVO INTEGRADO, SIN ARCHIVOS EXTERNOS -->
+      <svg class="logo-symbol"
+           viewBox="0 0 100 100"
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="Símbolo médico de MEDINOVA">
+
+        <defs>
+          <linearGradient id="medinova-gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0bb6ad"/>
+            <stop offset="100%" stop-color="#087f8c"/>
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M38 8
+             C38 3 42 1 47 1
+             L55 1
+             C60 1 64 5 64 10
+             L64 34
+             L88 34
+             C94 34 98 38 98 43
+             L98 51
+             C98 56 94 60 88 60
+             L64 60
+             L64 84
+             C64 90 60 94 55 94
+             L47 94
+             C42 94 38 90 38 84
+             L38 60
+             L14 60
+             C8 60 4 56 4 51
+             L4 43
+             C4 38 8 34 14 34
+             L38 34 Z"
+          fill="url(#medinova-gradient)"
+          transform="rotate(-15 50 50)"/>
+
+        <path
+          d="M49 29
+             C53 29 56 32 56 36
+             L56 44
+             L64 44
+             C68 44 71 47 71 51
+             C71 55 68 58 64 58
+             L56 58
+             L56 66
+             C56 70 53 73 49 73
+             C45 73 42 70 42 66
+             L42 58
+             L34 58
+             C30 58 27 55 27 51
+             C27 47 30 44 34 44
+             L42 44
+             L42 36
+             C42 32 45 29 49 29 Z"
+          fill="#ffffff"
+          transform="rotate(-15 49 51)"/>
+      </svg>
+
       <span>
-        <strong>MEDINOVA</strong>
+        <strong>MEDI<span>NOVA</span></strong>
         <small>ATENCIÓN MÉDICA ESPECIALIZADA</small>
       </span>
     </a>
@@ -350,11 +428,16 @@ footer{background:#042d3a;color:white;padding:30px 0}
 
     <div class="hero-art">
       <div class="hero-photo">
+        <!-- SE CONSERVA TU IMAGEN PRINCIPAL -->
         <img src="imagen.png" alt="Imagen principal de MEDINOVA">
       </div>
 
       <div class="floating float-top">
-        <b>✚ MEDINOVA</b><br>
+        <svg class="mini-logo" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M38 8H55V34H88V51H64V84H47V60H14V43H38Z"
+                fill="#087f8c" transform="rotate(-15 50 50)"/>
+        </svg>
+        <b>MEDINOVA</b><br>
         <small>Salud y confianza</small>
       </div>
 
@@ -525,9 +608,15 @@ footer{background:#042d3a;color:white;padding:30px 0}
 
 <footer>
   <div class="wrap footer-row">
-    <div>
-      <strong>MEDINOVA</strong>
-      <div class="footer-note">Atención médica especializada</div>
+    <div class="brand">
+      <svg class="logo-symbol" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M38 8H55V34H88V51H64V84H47V60H14V43H38Z"
+              fill="#0bb6ad" transform="rotate(-15 50 50)"/>
+      </svg>
+      <span>
+        <strong style="color:white">MEDINOVA</strong>
+        <span class="footer-note">Atención médica especializada</span>
+      </span>
     </div>
 
     <div class="footer-note">Información y citas: <a href="https://wa.me/524523393594">452 339 3594</a></div>
@@ -649,3 +738,4 @@ function toggleResources(id,button){
 </script>
 </body>
 </html>
+```
